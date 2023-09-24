@@ -12,54 +12,64 @@ struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
     
     var body: some View {
-        ZStack {
-            Map(coordinateRegion: $viewModel.mapRegion, annotationItems: viewModel.locations) { location in
-                MapAnnotation(coordinate: location.coordinates) {
-                    VStack {
-                        Image(systemName: "star.circle")
-                            .resizable()
-                            .foregroundStyle(.yellow)
+        if viewModel.isUnlocked {
+            ZStack {
+                Map(coordinateRegion: $viewModel.mapRegion, annotationItems: viewModel.locations) { location in
+                    MapAnnotation(coordinate: location.coordinates) {
+                        VStack {
+                            Image(systemName: "star.circle")
+                                .resizable()
+                                .foregroundStyle(.yellow)
                             // ----- 44 x 44 est la taille minimum recommandée par Apple pour les éléments interactifs
-                            .frame(width: 44, height: 44)
-                            .background(.white)
-                            .clipShape(Circle())
-                        
-                        Text(location.name)
-                            .fixedSize()
-                    }
-                    .onTapGesture {
-                        viewModel.selectedPlace = location
+                                .frame(width: 44, height: 44)
+                                .background(.white)
+                                .clipShape(Circle())
+                            
+                            Text(location.name)
+                                .fixedSize()
+                        }
+                        .onTapGesture {
+                            viewModel.selectedPlace = location
+                        }
                     }
                 }
-            }
                 .ignoresSafeArea()
-            
-            Circle()
-                .fill(.blue)
-                .opacity(0.3)
-                .frame(width: 32, height: 32)
-            
-            VStack {
-                Spacer()
-                HStack {
+                
+                Circle()
+                    .fill(.blue)
+                    .opacity(0.3)
+                    .frame(width: 32, height: 32)
+                
+                VStack {
                     Spacer()
-                    Button {
-                        viewModel.setNewLocation()
-                    } label: {
-                        Image(systemName: "plus")
+                    HStack {
+                        Spacer()
+                        Button {
+                            viewModel.setNewLocation()
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .padding()
+                        .background(.black.opacity(0.75))
+                        .foregroundStyle(.white)
+                        .clipShape(Circle())
+                        .padding(.trailing)
                     }
-                    .padding()
-                    .background(.black.opacity(0.75))
-                    .foregroundStyle(.white)
-                    .clipShape(Circle())
-                    .padding(.trailing)
                 }
             }
-        }
-        .sheet(item: $viewModel.selectedPlace) { place in
-            EditView(location: place) { newLocation in
-                viewModel.updateLocation(with: newLocation)
+            .sheet(item: $viewModel.selectedPlace) { place in
+                EditView(location: place) { newLocation in
+                    viewModel.updateLocation(with: newLocation)
+                }
             }
+        } else {
+            Button("Unlock Places") {
+                viewModel.authenticate()
+            }
+            .padding(.horizontal)
+            .background(.blue)
+            .foregroundStyle(.white)
+            .clipShape(Capsule())
         }
     }
 }
