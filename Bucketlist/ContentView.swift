@@ -22,7 +22,7 @@ struct ContentView: View {
                     VStack {
                         Image(systemName: "star.circle")
                             .resizable()
-                            .foregroundStyle(.red)
+                            .foregroundStyle(.yellow)
                             // ----- 44 x 44 est la taille minimum recommandée par Apple pour les éléments interactifs
                             .frame(width: 44, height: 44)
                             .background(.white)
