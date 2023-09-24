@@ -39,7 +39,6 @@
 		DB3D16692AC03F3200FFFEC3 = {
 			isa = PBXGroup;
 			children = (
-				DB3D16852AC044F300FFFEC3 /* EditView.swift */,
 				DB3D16742AC03F3200FFFEC3 /* Bucketlist */,
 				DB3D16732AC03F3200FFFEC3 /* Products */,
 			);
@@ -56,6 +55,7 @@
 		DB3D16742AC03F3200FFFEC3 /* Bucketlist */ = {
 			isa = PBXGroup;
 			children = (
+				DB3D16852AC044F300FFFEC3 /* EditView.swift */,
 				DB3D16752AC03F3200FFFEC3 /* BucketlistApp.swift */,
 				DB3D16772AC03F3200FFFEC3 /* ContentView.swift */,
 				DB3D16832AC03F3D00FFFEC3 /* Location.swift */,
