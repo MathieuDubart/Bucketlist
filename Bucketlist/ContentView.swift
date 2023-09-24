@@ -48,6 +48,7 @@ struct ContentView: View {
                             viewModel.setNewLocation()
                         } label: {
                             Image(systemName: "plus")
+                                .padding()
                                 .background(.black.opacity(0.75))
                                 .foregroundStyle(.white)
                                 .clipShape(Circle())
