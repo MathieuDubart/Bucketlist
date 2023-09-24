@@ -48,12 +48,11 @@ struct ContentView: View {
                             viewModel.setNewLocation()
                         } label: {
                             Image(systemName: "plus")
+                                .background(.black.opacity(0.75))
+                                .foregroundStyle(.white)
+                                .clipShape(Circle())
+                                .padding(.trailing)
                         }
-                        .padding()
-                        .background(.black.opacity(0.75))
-                        .foregroundStyle(.white)
-                        .clipShape(Circle())
-                        .padding(.trailing)
                     }
                 }
             }
@@ -66,10 +65,18 @@ struct ContentView: View {
             Button("Unlock Places") {
                 viewModel.authenticate()
             }
-            .padding(.horizontal)
+            .padding()
             .background(.blue)
             .foregroundStyle(.white)
             .clipShape(Capsule())
+            .alert("Authentication error", isPresented: $viewModel.isShowingAutenticationError) {
+                Button("OK"){}
+            } message: {
+                HStack{
+                    Image(systemName: "warning")
+                    Text(viewModel.authenticationError)
+                }
+            }
         }
     }
 }

@@ -17,6 +17,8 @@ extension ContentView {
         @Published private(set) var locations: Array<Location>
         @Published var selectedPlace: Location?
         @Published var isUnlocked = false
+        @Published var authenticationError = "Unknown Error"
+        @Published var isShowingAutenticationError = false
         
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPlaces")
         
@@ -66,16 +68,20 @@ extension ContentView {
                 let reason = "Please authenticate yourself to unlock your places."
                 
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                    if success {
-                        Task { @MainActor in
+                    Task { @MainActor in
+                        if success {
                             self.isUnlocked = true
+                        } else {
+                            // error
+                            self.authenticationError = "Biometric authentication failed. Please try again."
+                            self.isShowingAutenticationError = true
                         }
-                    } else {
-                        // error
                     }
                 }
             } else {
                 // no biometrics
+                authenticationError = "Sorry your device doesn't support biometric authentication"
+                isShowingAutenticationError = true
             }
         }
     }
