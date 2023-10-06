@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB10096D2AD04E6C0099D710 /* AddNewPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10096C2AD04E6C0099D710 /* AddNewPlaceView.swift */; };
 		DB3D16762AC03F3200FFFEC3 /* BucketlistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3D16752AC03F3200FFFEC3 /* BucketlistApp.swift */; };
 		DB3D16782AC03F3200FFFEC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3D16772AC03F3200FFFEC3 /* ContentView.swift */; };
 		DB3D167A2AC03F3300FFFEC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB3D16792AC03F3300FFFEC3 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB10096C2AD04E6C0099D710 /* AddNewPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPlaceView.swift; sourceTree = "<group>"; };
 		DB3D16722AC03F3200FFFEC3 /* Bucketlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bucketlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB3D16752AC03F3200FFFEC3 /* BucketlistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistApp.swift; sourceTree = "<group>"; };
 		DB3D16772AC03F3200FFFEC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				DB3D16752AC03F3200FFFEC3 /* BucketlistApp.swift */,
 				DB84D80A2AC087790026EE7A /* ContentView-ViewModel.swift */,
 				DB3D16772AC03F3200FFFEC3 /* ContentView.swift */,
+				DB10096C2AD04E6C0099D710 /* AddNewPlaceView.swift */,
 				DB84D80E2AC09E460026EE7A /* EditView-ViewModel.swift */,
 				DB3D16852AC044F300FFFEC3 /* EditView.swift */,
 				DB84D8082AC07C460026EE7A /* Result.swift */,
@@ -159,6 +162,7 @@
 				DB84D80D2AC08D3D0026EE7A /* FileManager-DocumentsDirectory.swift in Sources */,
 				DB84D80B2AC087790026EE7A /* ContentView-ViewModel.swift in Sources */,
 				DB84D8092AC07C460026EE7A /* Result.swift in Sources */,
+				DB10096D2AD04E6C0099D710 /* AddNewPlaceView.swift in Sources */,
 				DB3D16842AC03F3D00FFFEC3 /* Location.swift in Sources */,
 				DB84D80F2AC09E460026EE7A /* EditView-ViewModel.swift in Sources */,
 				DB3D16862AC044F300FFFEC3 /* EditView.swift in Sources */,

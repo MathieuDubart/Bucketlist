@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
+    @State private var showNewPlaceView = false
     
     var body: some View {
         if viewModel.isUnlocked {
@@ -61,6 +62,9 @@ struct ContentView: View {
                 EditView(location: place) { newLocation in
                     viewModel.updateLocation(with: newLocation)
                 }
+            }
+            .sheet(isPresented: $showNewPlaceView) {
+                AddNewPlaceView()
             }
         } else {
             Button("Unlock Places") {

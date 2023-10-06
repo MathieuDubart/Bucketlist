@@ -53,7 +53,7 @@ struct EditView: View {
         }
     }
     
-    // ----- @escaping signifie que la fonction onSave ne sera pas appelée toute de suite mais plus tard
+    // ----- @escaping signifie que la fonction onSave ne sera pas appelée toute de suite au build du init mais plus tard
     init(location: Location, onSave: @escaping (Location) -> Void) {
         
         self.onSave = onSave
